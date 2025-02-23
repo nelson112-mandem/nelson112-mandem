@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genesis Job Portal Login</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Inline CSS for custom styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f6f9;
+            font-family: Arial, sans-serif;
+            background-image: url(your-image.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+        .login-form {
+            width: 350px;
+            padding: 30px;
+            background-color: lightgray;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .login-form:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+        }
+        .form-control {
+            height: 45px;
+            font-size: 16px;
+        }
+        .btn-primary {
+            height: 45px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .show-btn {
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 72%;
+            transform: translateY(-50%);
+        }
+        .forgot-password {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-form">
+        <h2 class="text-center mb-4">Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" class="form-control" placeholder="Enter username" required>
+            </div>
+            <div class="form-group position-relative">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" placeholder="Enter password" required>
+                <span class="show-btn" onclick="togglePassword()">Show</span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <a href="forgotpassword.html" class="forgot-password">Forgot Password?</a>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- JavaScript for interactivity -->
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const showBtn = document.querySelector('.show-btn');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                showBtn.textContent = 'Hide';
+            } else {
+                passwordField.type = 'password';
+                showBtn.textContent = 'Show';
+            }
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'admin' && password === 'password') {
+                alert('Login successful!');
+                // Redirect to job portal or dashboard
+            } else {
+                alert('Invalid username or password.');
+            }
+        });
+    </script>
+</body>
+</html>

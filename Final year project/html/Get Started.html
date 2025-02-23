@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Genesis - Job Posting</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      background-image: url(your-image.jpg);
+			background-size: cover;
+			background-position: center;
+    }
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: all 0.5s ease-in-out;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.5s ease-in-out;
+    }
+    p {
+      color: #666;
+      font-size: 18px;
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.5s ease-in-out;
+    }
+    a.button {
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.5s ease-in-out;
+    }
+    a.button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="container">
+    <h1>Welcome to The Genesis</h1>
+    <p>Your one-stop solution for posting and finding jobs. Connect with employers and job seekers with ease and efficiency. Let's get started on your career journey!</p>
+    <a class="button" href="index.html" id="getStartedButton">Get Started</a>
+  </div>
+  
+  <script>
+    // Animate the container on page load
+    window.addEventListener('load', function() {
+      const container = document.getElementById('container');
+      const elements = container.querySelectorAll('h1, p, a.button');
+
+      container.style.opacity = '1';
+      container.style.transform = 'scale(1)';
+
+      elements.forEach((element, index) => {
+        setTimeout(() => {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }, index * 200);
+      });
+    });
+
+    // Add click event to the button
+    document.getElementById('getStartedButton').addEventListener('click', function(event) {
+      event.preventDefault();
+      const confirmation = confirm('Are you ready to get started?');
+      if (confirmation) {
+        alert('Redirecting to the job posting section...');
+        window.location.href = 'index.html';
+      }
+    });
+  </script>
+</body>
+</html>
